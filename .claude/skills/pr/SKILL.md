@@ -43,10 +43,6 @@ Search for a pull request template in the project. Common locations to check:
 ## Changes
 
 <bullet list of key changes grouped by area if needed>
-
-## Test plan
-
-<checklist of how to verify the changes work>
 ```
 
 Populate every section with concrete details from the commits and diff. Do not leave placeholder text.
