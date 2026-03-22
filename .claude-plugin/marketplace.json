@@ -1,0 +1,72 @@
+{
+  "name": "ai-hub",
+  "owner": {
+    "name": "parfenovvs"
+  },
+  "metadata": {
+    "description": "Personal collection of Claude Code skills for version control, planning, and development workflows.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "commit",
+      "description": "Create conventional commit messages (feat, fix, docs, etc.) following the Conventional Commits spec",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/commit"
+      ],
+      "version": "1.0.0",
+      "category": "vcs",
+      "tags": ["git", "commits", "conventional-commits", "changelog"]
+    },
+    {
+      "name": "jj",
+      "description": "All version control operations using the Jujutsu (jj) CLI — commits, bookmarks, rebasing, workspaces",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/jj"
+      ],
+      "version": "1.0.0",
+      "category": "vcs",
+      "tags": ["jujutsu", "vcs", "branches", "workspaces", "stacked-diffs"]
+    },
+    {
+      "name": "pr",
+      "description": "Create a pull request for the current branch with a structured description, using a repo template if one exists",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/pr"
+      ],
+      "version": "1.0.0",
+      "category": "vcs",
+      "tags": ["git", "pull-request", "github", "gitlab", "bitbucket"]
+    },
+    {
+      "name": "new-feature",
+      "description": "Scaffold a new feature: gather requirements, create an isolated workspace, and produce a development plan before writing code",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/new-feature"
+      ],
+      "version": "1.0.0",
+      "category": "planning",
+      "tags": ["planning", "scaffolding", "feature", "requirements", "workflow"]
+    },
+    {
+      "name": "tbd",
+      "description": "Plan and implement features as a stack of short-lived, independently-green PRs using trunk-based development",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/tbd"
+      ],
+      "version": "1.0.0",
+      "category": "planning",
+      "tags": ["trunk-based-development", "stacked-prs", "planning", "ci-cd"]
+    }
+  ]
+}

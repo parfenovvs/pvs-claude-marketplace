@@ -1,13 +1,35 @@
-# ai-hub
+# ai-hub — Claude Code Plugin Marketplace
 
-Personal collection of AI configs and Claude Code skills.
+A personal collection of reusable [Claude Code](https://claude.ai/code) skills, distributed as a plugin marketplace.
 
-## Skills
+## Install
 
-| Skill | Description |
-|-------|-------------|
-| [commit](skills/commit/SKILL.md) | Create conventional commit messages (feat, fix, docs, etc.) following the Conventional Commits spec |
-| [jj](skills/jj/SKILL.md) | All version control operations using the Jujutsu (`jj`) CLI — commits, bookmarks, rebasing, workspaces |
-| [new-feature](skills/new-feature/SKILL.md) | Scaffold a new feature: gather requirements, create an isolated workspace, and produce a development plan before writing code |
-| [pr](skills/pr/SKILL.md) | Create a pull request for the current branch with a structured description, using a repo template if one exists |
-| [tbd](skills/tbd/SKILL.md) | Plan and implement features as a stack of short-lived, independently-green PRs using trunk-based development |
+Add this marketplace to Claude Code:
+
+```
+/plugin marketplace add parfenovvs/ai-hub
+```
+
+Then install individual plugins:
+
+```
+/plugin install commit@ai-hub
+/plugin install jj@ai-hub
+/plugin install pr@ai-hub
+/plugin install new-feature@ai-hub
+/plugin install tbd@ai-hub
+```
+
+## Plugins
+
+| Plugin | Category | Description |
+|--------|----------|-------------|
+| [commit](skills/commit/SKILL.md) | vcs | Create conventional commit messages (feat, fix, docs, etc.) following the Conventional Commits spec |
+| [jj](skills/jj/SKILL.md) | vcs | All version control operations using the Jujutsu (`jj`) CLI — commits, bookmarks, rebasing, workspaces |
+| [pr](skills/pr/SKILL.md) | vcs | Create a pull request for the current branch with a structured description, using a repo template if one exists |
+| [new-feature](skills/new-feature/SKILL.md) | planning | Scaffold a new feature: gather requirements, create an isolated workspace, and produce a development plan before writing code |
+| [tbd](skills/tbd/SKILL.md) | planning | Plan and implement features as a stack of short-lived, independently-green PRs using trunk-based development |
+
+## Marketplace catalog
+
+The full catalog is defined in [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json).
