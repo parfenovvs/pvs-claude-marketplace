@@ -14,10 +14,6 @@ Then install individual plugins:
 
 ```
 /plugin install commit@ai-hub
-/plugin install jj@ai-hub
-/plugin install pr@ai-hub
-/plugin install new-feature@ai-hub
-/plugin install tbd@ai-hub
 ```
 
 ## Plugins
