@@ -17,8 +17,6 @@ pull requests that integrate into trunk frequently.
 
 - **Trunk is always deployable** — no PR merges if it breaks the build, fails
   tests, or regresses UX
-- **Branch lifetime ≤ 1-2 days** — the longer a branch lives, the harder it
-  merges; plan accordingly
 - **Each PR is independently green** — builds pass, tests pass, UX is intact,
   even if the feature is not yet fully visible to users
 - **Plan the stack before writing code** — map every PR in the stack upfront;
@@ -92,36 +90,15 @@ When a user requests a feature using TBD:
 
 ---
 
-## jj Workflow for a Stack
+## VCS Workflow for a Stack
 
-Each PR corresponds to one jj bookmark on top of the previous:
+Each PR corresponds to a branch built on top of the previous one, not on trunk directly.
 
-```bash
-# Start from trunk
-jj new trunk -m "wip: PR 1 — add schema migration"
-jj bookmark create feature-x-1
-
-# Finish PR 1, push
-jj describe -m "feat(db): add orders table migration"
-jj git push --bookmark feature-x-1
-
-# Build PR 2 on top of PR 1 (not trunk)
-jj new feature-x-1 -m "wip: PR 2 — add order service"
-jj bookmark create feature-x-2
-```
-
-When trunk advances (e.g. after PR 1 merges):
-
-```bash
-# Rebase the remaining stack onto updated trunk
-jj rebase -s 'all:roots(trunk..feature-x-2)' -d trunk@origin
-```
-
-View the full stack:
-
-```bash
-jj log -r 'trunk..feature-x-5'
-```
+When working on a stack:
+- Create each branch from the tip of the previous PR's branch, not from trunk
+- Push each branch independently so it can be reviewed and merged on its own
+- When a lower PR merges into trunk, rebase the remaining branches onto the updated trunk before continuing
+- Keep your view of the full stack visible — know which branches are in flight and their order at all times
 
 ---
 
@@ -159,7 +136,6 @@ PR N — remove feature flag / final wiring
 - **PRs that only pass tests when stacked** — each PR must be green on its own
 - **Skipping the plan** — starting implementation before the stack is mapped
   leads to mid-stack redesigns
-- **Branches lasting more than 2 days** — split further or timebox the work
 - **Merging a red PR to unblock the next** — this spreads the failure across
   the stack; fix the gate failure first
 - **Feature flag sprawl** — every flag must have a removal PR already planned
