@@ -11,7 +11,9 @@ Create a pull request for the current branch with a well-structured description.
 
 ### 1. Gather Branch Context
 
-Determine the current branch, the appropriate base branch (e.g. `main`, `master`, `develop`), the commits that will be included in the PR, and a summary of changed files.
+Determine the current branch, the appropriate base branch, and a summary of commits and changed files that will be included in the PR.
+
+The base branch is typically the repository's default trunk — common names include `main`, `master`, `develop`, `trunk`, or `default`. Detect it from the remote when possible rather than assuming a name.
 
 If the branch has no commits ahead of the base branch, stop and inform the user there is nothing to PR.
 
