@@ -1,15 +1,15 @@
-# ai-hub
+# pvs-claude-marketplace
 
 Claude Code plugin marketplace — personal collection of skills distributed via the Claude Code plugin system.
 
 ## Purpose
 
-This repository is a [Claude Code plugin marketplace](https://code.claude.com/docs/en/plugin-marketplaces). It hosts skills that users install with `/plugin install <name>@ai-hub`. Each skill is a prompt-driven behaviour that extends what Claude can do in a project.
+This repository is a [Claude Code plugin marketplace](https://code.claude.com/docs/en/plugin-marketplaces). It hosts skills that users install with `/plugin install <name>@pvs-claude-marketplace`. Each skill is a prompt-driven behaviour that extends what Claude can do in a project.
 
 ## Repository Structure
 
 ```
-ai-hub/
+pvs-claude-marketplace/
 ├── README.md                        # Marketplace overview and install instructions
 ├── CLAUDE.md                        # This file — project structure and guidance for AI agents
 ├── .claude-plugin/

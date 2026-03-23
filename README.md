@@ -1,4 +1,4 @@
-# ai-hub — Claude Code Plugin Marketplace
+# pvs-claude-marketplace — Claude Code Plugin Marketplace
 
 A personal collection of reusable [Claude Code](https://claude.ai/code) skills, distributed as a plugin marketplace.
 
@@ -7,13 +7,13 @@ A personal collection of reusable [Claude Code](https://claude.ai/code) skills, 
 Add this marketplace to Claude Code:
 
 ```
-/plugin marketplace add parfenovvs/ai-hub
+/plugin marketplace add parfenovvs/pvs-claude-marketplace
 ```
 
 Then install individual plugins:
 
 ```
-/plugin install commit@ai-hub
+/plugin install commit@pvs-claude-marketplace
 ```
 
 ## Plugins
