@@ -1,4 +1,5 @@
 {
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "pvs-claude-marketplace",
   "owner": {
     "name": "parfenovvs"
@@ -11,11 +12,7 @@
     {
       "name": "commit",
       "description": "Create conventional commit messages (feat, fix, docs, etc.) following the Conventional Commits spec",
-      "source": "./",
-      "strict": false,
-      "skills": [
-        "./skills/commit"
-      ],
+      "source": "./plugins/commit",
       "version": "1.0.0",
       "category": "vcs",
       "tags": ["git", "commits", "conventional-commits", "changelog"]
@@ -23,11 +20,7 @@
     {
       "name": "jj",
       "description": "All version control operations using the Jujutsu (jj) CLI — commits, bookmarks, rebasing, workspaces",
-      "source": "./",
-      "strict": false,
-      "skills": [
-        "./skills/jj"
-      ],
+      "source": "./plugins/jj",
       "version": "1.0.0",
       "category": "vcs",
       "tags": ["jujutsu", "vcs", "branches", "workspaces", "stacked-diffs"]
@@ -35,11 +28,7 @@
     {
       "name": "pr",
       "description": "Create a pull request for the current branch with a structured description, using a repo template if one exists",
-      "source": "./",
-      "strict": false,
-      "skills": [
-        "./skills/pr"
-      ],
+      "source": "./plugins/pr",
       "version": "1.0.0",
       "category": "vcs",
       "tags": ["git", "pull-request", "github", "gitlab", "bitbucket"]
@@ -47,11 +36,7 @@
     {
       "name": "new-feature",
       "description": "Scaffold a new feature: gather requirements, create an isolated workspace, and produce a development plan before writing code",
-      "source": "./",
-      "strict": false,
-      "skills": [
-        "./skills/new-feature"
-      ],
+      "source": "./plugins/new-feature",
       "version": "1.0.0",
       "category": "planning",
       "tags": ["planning", "scaffolding", "feature", "requirements", "workflow"]
@@ -59,11 +44,7 @@
     {
       "name": "tbd",
       "description": "Plan and implement features as a stack of short-lived, independently-green PRs using trunk-based development",
-      "source": "./",
-      "strict": false,
-      "skills": [
-        "./skills/tbd"
-      ],
+      "source": "./plugins/tbd",
       "version": "1.0.0",
       "category": "planning",
       "tags": ["trunk-based-development", "stacked-prs", "planning", "ci-cd"]
