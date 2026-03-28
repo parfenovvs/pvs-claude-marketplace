@@ -21,7 +21,7 @@
       "name": "jj",
       "description": "All version control operations using the Jujutsu (jj) CLI — commits, bookmarks, rebasing, workspaces",
       "source": "./plugins/jj",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "category": "vcs",
       "tags": ["jujutsu", "vcs", "branches", "workspaces", "stacked-diffs"]
     },
