@@ -54,6 +54,7 @@ all:X           # prefix for commands expecting multiple revisions
 jj status            # Show working copy status (alias: jj st)
 jj log               # Show commit graph
 jj log --limit 10    # Limit to 10 entries
+jj log -r 'all()'    # Show all revisions
 jj log -r trunk..@   # Show range of changes
 jj show              # Show current change diff
 jj show <rev>        # Show specific change diff
@@ -99,11 +100,8 @@ jj op undo <op>      # Undo a specific past operation
 
 ```bash
 jj bookmark list                 # List all bookmarks (alias: jj b l)
-jj bookmark create <name>        # Create bookmark at @
-jj bookmark create <name> -r <rev>  # Create at specific revision
-jj bookmark set <name>           # Move existing bookmark to @
-jj bookmark set <name> -r <rev>  # Move bookmark to revision
-jj bookmark move <name> --to <rev>  # Move bookmark
+jj bookmark set <name>           # Create or move bookmark to @
+jj bookmark set <name> -r <rev>  # Create or move bookmark to revision
 jj bookmark delete <name>        # Delete bookmark
 jj bookmark rename <old> <new>   # Rename bookmark
 jj bookmark track <name>@<remote>   # Start tracking remote bookmark
@@ -143,23 +141,23 @@ jj file list                     # List tracked files
 Workspaces are jj's alternative to git worktrees — multiple working copies sharing the same repo.
 Each workspace has its own `@` (working-copy commit) and can be on a different change.
 
-**Always create workspaces inside the project at `PROJECT_DIR/.jj/workspace/<feature-name>`.**
+**Always create workspaces as siblings of the project at `../<feature-name>`.**
 
 ```bash
 # List existing workspaces
 jj workspace list
 
 # Add a new workspace (creates directory at the specified path)
-jj workspace add .jj/workspace/<feature-name>
+jj workspace add ../<feature-name>
 
 # Add workspace starting at a specific revision
-jj workspace add .jj/workspace/<feature-name> -r <rev>
+jj workspace add ../<feature-name> -r <rev>
 
 # Add workspace with an explicit name (defaults to directory basename)
-jj workspace add .jj/workspace/<feature-name> --name <name>
+jj workspace add ../<feature-name> --name <name>
 
 # Work in the new workspace (cd into it, jj commands operate there)
-cd .jj/workspace/<feature-name>
+cd ../<feature-name>
 jj status    # @ is this workspace's working copy
 
 # View all workspaces and their @ in the log (shown as <workspace>@)
@@ -176,8 +174,8 @@ jj workspace update-stale
 
 ```bash
 # In main project dir: start a new feature in isolation
-jj workspace add .jj/workspace/feature-x
-cd .jj/workspace/feature-x
+jj workspace add ../feature-x
+cd ../feature-x
 
 # Do work here; @ is independent from main workspace
 jj describe -m "wip: feature x"
@@ -190,7 +188,7 @@ jj status    # main workspace @ is unaffected
 # When feature is done, clean up
 cd <PROJECT_DIR>
 jj workspace forget feature-x
-rm -rf .jj/workspace/feature-x   # optional: remove the directory
+rm -rf ../feature-x   # optional: remove the directory
 ```
 
 ---
@@ -240,7 +238,7 @@ jj commit -m "implement login"
 
 ```bash
 # Create a bookmark for the feature
-jj bookmark create feature-x
+jj bookmark set feature-x
 
 # Do work, create changes...
 jj describe -m "start feature X"
@@ -325,7 +323,7 @@ jj git push --change @   # creates a bookmark if needed
 | Stage files | `git add` | Not needed — auto-snapshot |
 | Commit | `git commit -m "..."` | `jj commit -m "..."` or `jj describe` + `jj new` |
 | Amend last commit | `git commit --amend` | `jj describe` (just edit the current change) |
-| Create branch | `git checkout -b name` | `jj bookmark create name` + `jj new` |
+| Create branch | `git checkout -b name` | `jj bookmark set name` + `jj new` |
 | Switch branch | `git checkout name` | `jj edit name` or `jj new name` |
 | Undo commit | `git reset HEAD~` | `jj undo` |
 | View log | `git log` | `jj log` |
@@ -333,7 +331,7 @@ jj git push --change @   # creates a bookmark if needed
 | Interactive rebase | `git rebase -i` | `jj squash`, `jj split`, `jj rebase` |
 | Cherry-pick | `git cherry-pick` | `jj duplicate -r <rev>` + rebase |
 | Push branch | `git push origin name` | `jj git push --bookmark name` |
-| Worktree | `git worktree add` | `jj workspace add .jj/workspace/<name>` |
+| Worktree | `git worktree add` | `jj workspace add ../<name>` |
 
 ---
 
