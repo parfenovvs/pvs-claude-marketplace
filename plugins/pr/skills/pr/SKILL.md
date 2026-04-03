@@ -1,6 +1,10 @@
 ---
 name: pr
-description: Create a pull request for the current branch. Searches for a PR template in the project and uses it to structure the PR description.
+description: >
+  Create a pull request for the current branch. Use when the user says "create a PR",
+  "open a PR", "push and PR", "make a pull request", "submit a PR", "create pull request",
+  or asks to publish/submit changes as a PR. Searches for a PR template and uses it to
+  structure the description.
 ---
 
 # Create Pull Request

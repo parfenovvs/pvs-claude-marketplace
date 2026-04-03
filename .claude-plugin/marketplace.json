@@ -29,7 +29,7 @@
       "name": "pr",
       "description": "Create a pull request for the current branch with a structured description, using a repo template if one exists",
       "source": "./plugins/pr",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "category": "vcs",
       "tags": ["git", "pull-request", "github", "gitlab", "bitbucket"]
     },
@@ -48,6 +48,14 @@
       "version": "1.0.0",
       "category": "planning",
       "tags": ["trunk-based-development", "stacked-prs", "planning", "ci-cd"]
+    },
+    {
+      "name": "vcs-workflow",
+      "description": "Unified VCS workflow: jj for local operations, gh for GitHub, trunk-based development with stacked PRs, and error recovery",
+      "source": "./plugins/vcs-workflow",
+      "version": "1.0.0",
+      "category": "vcs",
+      "tags": ["jujutsu", "github", "trunk-based-development", "stacked-prs", "workflow", "error-recovery"]
     }
   ]
 }

@@ -47,6 +47,7 @@ Each skill lives in `plugins/<name>/skills/<name>/SKILL.md` and contains:
 | [new-feature](plugins/new-feature/skills/new-feature/SKILL.md) | planning | Scaffold a new feature: gather requirements, create an isolated workspace, and produce a development plan before writing code |
 | [pr](plugins/pr/skills/pr/SKILL.md) | vcs | Create a pull request for the current branch with a structured description, using a repo template if one exists |
 | [tbd](plugins/tbd/skills/tbd/SKILL.md) | planning | Plan and implement features as a stack of short-lived, independently-green PRs using trunk-based development |
+| [vcs-workflow](plugins/vcs-workflow/skills/vcs-workflow/SKILL.md) | vcs | Unified VCS workflow: jj for local operations, gh for GitHub, trunk-based development with stacked PRs, and error recovery |
 
 ## Adding a New Skill
 
